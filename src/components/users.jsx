@@ -8,10 +8,22 @@ const Users = () => {
     setUsers((prevState) => prevState.filter((user) => user._id !== userId));
   };
 
-  const renderPhrase = (number) => {};
+  const renderPhrase = (number) => {
+    const amount = Number(number.toString().slice(-1));
+    return !number
+      ? "Никто не"
+      : amount >= 2 && amount <= 4 && (number < 5 || number > 14)
+      ? number + " человека"
+      : number + " человек";
+  };
 
   return (
     <>
+      <h2>
+        <span className={"badge bg-" + (users.length ? "primary" : "danger")}>
+          {renderPhrase(users.length)} тусонет с тобой сегодня
+        </span>
+      </h2>
       <table className="table">
         <thead>
           <tr>
@@ -42,7 +54,7 @@ const Users = () => {
               <th>{user.rate}/5</th>
               <th>
                 <button
-                  className="badge bg-danger"
+                  className="btn btn-danger"
                   onClick={() => handleDelete(user._id)}
                 >
                   delete
