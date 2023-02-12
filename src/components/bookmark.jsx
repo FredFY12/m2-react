@@ -1,7 +1,7 @@
 import React from "react";
 
 const BookMark = ({ status, ...rest }) => {
-  const toggleBookmarkCheck = () => {
+  const toggleBookmark = () => {
     return status ? (
       <i className="bi bi-bookmark-fill"></i>
     ) : (
@@ -11,7 +11,7 @@ const BookMark = ({ status, ...rest }) => {
   return (
     <td>
       <button className="btn btn-outline-dark " onClick={rest.onBookmark}>
-        {toggleBookmarkCheck()}
+        {toggleBookmark()}
       </button>
     </td>
   );
