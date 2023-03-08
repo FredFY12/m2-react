@@ -9,7 +9,7 @@ const Qualitie = ({ _id, name, color }) => {
 };
 
 Qualitie.propTypes = {
-    _id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
 };
