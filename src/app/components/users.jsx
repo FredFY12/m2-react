@@ -30,7 +30,11 @@ const Users = ({ users, ...rest }) => {
     };
 
     const filteredUsers = selectedProf
-        ? users.filter((user) => user.profession === selectedProf)
+        ? users.filter(
+            (user) =>
+                JSON.stringify(user.profession) ===
+                  JSON.stringify(selectedProf)
+        )
         : users;
 
     const count = filteredUsers.length;
@@ -98,7 +102,7 @@ const Users = ({ users, ...rest }) => {
     );
 };
 Users.propTypes = {
-    users: PropTypes.array.isRequired
+    users: PropTypes.array
 };
 
 export default Users;
