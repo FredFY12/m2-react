@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import api from "../api";
-import QualitiesList from "./qualitiesList";
-import { useHistory } from "react-router-dom";
-import Loader from "./loader";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import api from '../api';
+import QualitiesList from './qualitiesList';
+import { useHistory } from 'react-router-dom';
+import Loader from './loader';
 
 const UserPage = ({ userId }) => {
   const history = useHistory();
@@ -12,7 +12,7 @@ const UserPage = ({ userId }) => {
     api.users.getById(userId).then((data) => setUser(data));
   });
   const handleClick = () => {
-    history.push("/users");
+    history.push('/users');
   };
 
   if (user) {

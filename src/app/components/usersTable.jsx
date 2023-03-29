@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import BookMark from "./bookmark";
-import TableHeader from "./tableHeader";
-import TableBody from "./tableBody";
-import QualitiesList from "./qualitiesList";
-import Table from "./table";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import BookMark from './bookmark';
+import TableHeader from './tableHeader';
+import TableBody from './tableBody';
+import QualitiesList from './qualitiesList';
+import Table from './table';
+import { Link } from 'react-router-dom';
 
 const UserTable = ({
   users,
@@ -16,20 +16,20 @@ const UserTable = ({
 }) => {
   const columns = {
     name: {
-      path: "name",
-      name: "Имя",
+      path: 'name',
+      name: 'Имя',
       component: (user) => <Link to={`/users/${user._id}`}>{user.name}</Link>
     },
     qualities: {
-      name: "Качества",
+      name: 'Качества',
       component: (user) => <QualitiesList qualities={user.qualities} />
     },
-    professions: { path: "profession.name", name: "Профессия" },
-    completedMeetings: { path: "completedMeetings", name: "Встретился, раз" },
-    rate: { path: "rate", name: "Рейтинг" },
+    professions: { path: 'profession.name', name: 'Профессия' },
+    completedMeetings: { path: 'completedMeetings', name: 'Встретился, раз' },
+    rate: { path: 'rate', name: 'Рейтинг' },
     bookmark: {
-      path: "bookmark",
-      name: "Избранное",
+      path: 'bookmark',
+      name: 'Избранное',
       component: (user) => (
         <BookMark
           status={user.bookmark}
@@ -39,7 +39,7 @@ const UserTable = ({
     },
     delete: {
       component: (user) => (
-        <button onClick={() => onDelete(user._id)} className="btn btn-danger">
+        <button onClick={() => onDelete(user._id)} className='btn btn-danger'>
           delete
         </button>
       )

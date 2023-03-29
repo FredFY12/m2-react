@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Pagination from "../components/pagination";
-import { paginate } from "../utils/pagenate";
-import PropTypes from "prop-types";
-import GroupList from "../components/groupList";
-import api from "../api";
-import SearchStatus from "../components/searchStatus";
-import UserTable from "../components/usersTable";
-import _ from "lodash";
-import Loader from "./loader";
+import React, { useState, useEffect } from 'react';
+import Pagination from '../components/pagination';
+import { paginate } from '../utils/pagenate';
+import PropTypes from 'prop-types';
+import GroupList from '../components/groupList';
+import api from '../api';
+import SearchStatus from '../components/searchStatus';
+import UserTable from '../components/usersTable';
+import _ from 'lodash';
+import Loader from './loader';
 
 const UsersList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [professions, setProfessions] = useState();
   const [selectedProf, setSelectedProf] = useState();
-  const [sortBy, setSortBy] = useState({ iter: "name", order: "asc" });
-
+  const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' });
   const [users, setUsers] = useState();
 
   useEffect(() => {
@@ -77,21 +76,21 @@ const UsersList = () => {
     };
 
     return (
-      <div className="d-flex">
+      <div className='d-flex'>
         {professions && (
-          <div className="d-flex flex-column flex-shrink-0 p-3">
+          <div className='d-flex flex-column flex-shrink-0 p-3'>
             <GroupList
               selectedItem={selectedProf}
               items={professions}
               onItemSelect={handleProffesionSlect}
             />
-            <button className="btn btn-secondary mt-2" onClick={clearFilter}>
+            <button className='btn btn-secondary mt-2' onClick={clearFilter}>
               Очистить
             </button>
           </div>
         )}
 
-        <div className="d-flex flex-column">
+        <div className='d-flex flex-column'>
           <SearchStatus length={count} />
           {count > 0 && (
             <UserTable
@@ -102,7 +101,7 @@ const UsersList = () => {
               onToggleBookMark={handleToggleBookMark}
             />
           )}
-          <div className="d-flex justify-content-center">
+          <div className='d-flex justify-content-center'>
             <Pagination
               itemsCount={count}
               pageSize={pageSize}
